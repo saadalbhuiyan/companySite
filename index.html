@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ResearchSoft — Research Driven Software</title>
+  <meta name="description" content="Research-based software solutions. R&D focused engineering for enterprise & startups." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small helper for smooth height transitions on accordion */
+    .accordion-content { height: 0; overflow: hidden; transition: height 300ms ease; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <!-- NAV -->
+  <header class="bg-white shadow-sm sticky top-0 z-30">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <svg class="w-8 h-8 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="currentColor"/></svg>
+        <div>
+          <h1 class="font-bold text-lg">ResearchSoft</h1>
+          <p class="text-xs text-gray-500">Data-driven software R&amp;D</p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex gap-6 items-center">
+        <a href="#home" class="hover:text-indigo-600">Home</a>
+        <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
+        <a href="#team" class="hover:text-indigo-600">Team</a>
+        <a href="#clients" class="hover:text-indigo-600">Clients</a>
+        <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="navToggle" aria-label="Toggle menu" class="p-2 rounded-md hover:bg-gray-100">
+          <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden border-t border-gray-100 hidden">
+      <div class="px-4 py-3 flex flex-col gap-2">
+        <a href="#home" class="py-2">Home</a>
+        <a href="#pricing" class="py-2">Pricing</a>
+        <a href="#team" class="py-2">Team</a>
+        <a href="#clients" class="py-2">Clients</a>
+        <a href="#faq" class="py-2">FAQ</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="home" class="container mx-auto px-4 pt-8 pb-20">
+
+    <!-- Hero / Slider -->
+    <section class="relative overflow-hidden rounded-lg bg-gray-900 text-white">
+      <div id="slides" class="relative h-72 md:h-96">
+        <!-- Slide 1 -->
+        <div class="slide absolute inset-0 bg-cover bg-center flex items-center justify-center p-6" style="background-image:url('https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=60')">
+          <div class="bg-black/50 p-6 rounded-lg max-w-3xl text-center">
+            <h2 class="text-2xl md:text-4xl font-extrabold">Research-first software for complex problems</h2>
+            <p class="mt-3 text-sm md:text-base text-gray-200">We combine rigorous research with production engineering to deliver measurable outcomes.</p>
+            <div class="mt-4 flex justify-center gap-3">
+              <a href="#contact" class="px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700">Get in touch</a>
+              <a href="#pricing" class="px-4 py-2 rounded-md bg-white text-gray-800">See pricing</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide absolute inset-0 bg-cover bg-center hidden items-center justify-center p-6" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=60')">
+          <div class="bg-black/50 p-6 rounded-lg max-w-3xl text-center">
+            <h2 class="text-2xl md:text-4xl font-extrabold">Data-driven prototypes, fast</h2>
+            <p class="mt-3 text-sm md:text-base text-gray-200">Proof-of-concept to production — we move quickly without sacrificing rigor.</p>
+            <div class="mt-4 flex justify-center gap-3">
+              <a href="#contact" class="px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700">Book a call</a>
+              <a href="#team" class="px-4 py-2 rounded-md bg-white text-gray-800">Meet our team</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide absolute inset-0 bg-cover bg-center hidden items-center justify-center p-6" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=60')">
+          <div class="bg-black/50 p-6 rounded-lg max-w-3xl text-center">
+            <h2 class="text-2xl md:text-4xl font-extrabold">Collaborative research partnerships</h2>
+            <p class="mt-3 text-sm md:text-base text-gray-200">We partner with academia and industry to turn research into real products.</p>
+            <div class="mt-4 flex justify-center gap-3">
+              <a href="#clients" class="px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700">Our clients</a>
+              <a href="#faq" class="px-4 py-2 rounded-md bg-white text-gray-800">FAQ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- slider controls -->
+      <div class="absolute left-4 top-1/2 -translate-y-1/2">
+        <button id="prevSlide" class="p-2 rounded-full bg-white/30 backdrop-blur hover:bg-white/50">◀</button>
+      </div>
+      <div class="absolute right-4 top-1/2 -translate-y-1/2">
+        <button id="nextSlide" class="p-2 rounded-full bg-white/30 backdrop-blur hover:bg-white/50">▶</button>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="mt-12">
+      <h3 class="text-2xl font-bold">Pricing & Engagement Models</h3>
+      <p class="text-gray-600 mt-2">Flexible plans to suit research projects, prototypes, and long-term partnerships.</p>
+
+      <div class="mt-6 grid gap-6 grid-cols-1 md:grid-cols-3">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h4 class="font-semibold">Starter R&amp;D</h4>
+          <p class="text-gray-500 text-sm mt-1">Short-term exploration & feasibility</p>
+          <div class="mt-4">
+            <div class="text-3xl font-extrabold">$5,000</div>
+            <div class="text-sm text-gray-500">one-time / prototype</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>• 4–6 week sprint</li>
+            <li>• Research plan & prototype</li>
+            <li>• Findings & next-step recommendations</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="block text-center px-4 py-2 rounded-md bg-indigo-600 text-white">Request quote</a>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border-2 border-indigo-50">
+          <h4 class="font-semibold">Growth / Pilot</h4>
+          <p class="text-gray-500 text-sm mt-1">Pilot projects with measurable KPIs</p>
+          <div class="mt-4">
+            <div class="text-3xl font-extrabold">$12,000</div>
+            <div class="text-sm text-gray-500">per 3 months</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>• Dedicated research engineer</li>
+            <li>• Data collection & evaluation</li>
+            <li>• Weekly demos</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="block text-center px-4 py-2 rounded-md bg-indigo-600 text-white">Start pilot</a>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h4 class="font-semibold">Enterprise / Retainer</h4>
+          <p class="text-gray-500 text-sm mt-1">Long-term research & engineering partner</p>
+          <div class="mt-4">
+            <div class="text-3xl font-extrabold">Custom</div>
+            <div class="text-sm text-gray-500">contact us for pricing</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>• Team-of-teams approach</li>
+            <li>• IP & data agreements available</li>
+            <li>• SLA & dedicated support</li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="block text-center px-4 py-2 rounded-md bg-indigo-600 text-white">Let's talk</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="mt-16">
+      <h3 class="text-2xl font-bold">Meet the team</h3>
+      <p class="text-gray-600 mt-2">Engineers, researchers, and product thinkers.</p>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- team card -->
+        <div class="bg-white p-4 rounded-lg text-center shadow-sm">
+          <div class="w-24 h-24 mx-auto rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">AB</div>
+          <h4 class="mt-3 font-semibold">Dr. A. B.</h4>
+          <div class="text-sm text-gray-500">Head of Research</div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg text-center shadow-sm">
+          <div class="w-24 h-24 mx-auto rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">CD</div>
+          <h4 class="mt-3 font-semibold">C. D.</h4>
+          <div class="text-sm text-gray-500">ML Engineer</div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg text-center shadow-sm">
+          <div class="w-24 h-24 mx-auto rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">EF</div>
+          <h4 class="mt-3 font-semibold">E. F.</h4>
+          <div class="text-sm text-gray-500">Product Lead</div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg text-center shadow-sm">
+          <div class="w-24 h-24 mx-auto rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">GH</div>
+          <h4 class="mt-3 font-semibold">G. H.</h4>
+          <div class="text-sm text-gray-500">Data Scientist</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section id="clients" class="mt-16">
+      <h3 class="text-2xl font-bold">Happy clients</h3>
+      <p class="text-gray-600 mt-2">We collaborate with academic labs and product teams around the world.</p>
+
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 items-center">
+        <div class="bg-white p-4 rounded-md text-center shadow-sm">Client A</div>
+        <div class="bg-white p-4 rounded-md text-center shadow-sm">Client B</div>
+        <div class="bg-white p-4 rounded-md text-center shadow-sm">Client C</div>
+        <div class="bg-white p-4 rounded-md text-center shadow-sm">Client D</div>
+        <div class="bg-white p-4 rounded-md text-center shadow-sm">Client E</div>
+        <div class="bg-white p-4 rounded-md text-center shadow-sm">Client F</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mt-16">
+      <h3 class="text-2xl font-bold">Frequently asked questions</h3>
+      <div class="mt-6 space-y-3 max-w-3xl">
+        <div class="bg-white p-4 rounded-md shadow-sm">
+          <button class="w-full text-left faq-toggle flex justify-between items-center" data-target="faq1">
+            <span>What is your research approach?</span>
+            <span>+</span>
+          </button>
+          <div id="faq1" class="accordion-content mt-3 text-sm text-gray-600">
+            <div class="p-2">We start with problem scoping, design experiments, collect data, and iterate prototypes with measurable KPIs.</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-md shadow-sm">
+          <button class="w-full text-left faq-toggle flex justify-between items-center" data-target="faq2">
+            <span>Do you sign NDAs and data agreements?</span>
+            <span>+</span>
+          </button>
+          <div id="faq2" class="accordion-content mt-3 text-sm text-gray-600">
+            <div class="p-2">Yes. We offer NDAs, data processing agreements, and custom IP terms depending on the engagement.</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-md shadow-sm">
+          <button class="w-full text-left faq-toggle flex justify-between items-center" data-target="faq3">
+            <span>How long until I see results?</span>
+            <span>+</span>
+          </button>
+          <div id="faq3" class="accordion-content mt-3 text-sm text-gray-600">
+            <div class="p-2">Typical pilot projects run 6–12 weeks. We define milestones and deliverables before work begins.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mt-16">
+      <h3 class="text-2xl font-bold">Contact us</h3>
+      <p class="text-gray-600 mt-2">Tell us about your project — we'll follow up within 2 business days.</p>
+
+      <div class="mt-6 max-w-3xl bg-white p-6 rounded-md shadow-sm">
+        <form id="contactForm" class="space-y-4" onsubmit="return handleSubmit(event)">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input required name="name" id="name" placeholder="Your name" class="p-3 border rounded-md" />
+            <input required name="email" id="email" type="email" placeholder="Email" class="p-3 border rounded-md" />
+          </div>
+          <input name="company" id="company" placeholder="Company (optional)" class="p-3 border rounded-md w-full" />
+          <textarea required name="message" id="message" rows="5" placeholder="Project brief" class="p-3 border rounded-md w-full"></textarea>
+
+          <div class="flex items-center gap-3">
+            <button type="submit" class="px-4 py-2 rounded-md bg-indigo-600 text-white">Send message</button>
+            <div id="formStatus" class="text-sm text-gray-600"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t mt-12">
+    <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
+      <div class="text-sm text-gray-600">© <span id="year"></span> ResearchSoft — All rights reserved.</div>
+      <div class="flex gap-4 mt-3 md:mt-0">
+        <a href="#" class="text-sm">Privacy</a>
+        <a href="#" class="text-sm">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile nav
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle?.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+
+    // simple slider
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let idx = 0;
+      const show = (i)=>{
+        slides.forEach((s,si)=> s.classList.toggle('hidden', si!==i));
+      };
+      show(0);
+      document.getElementById('nextSlide').addEventListener('click', ()=>{ idx = (idx+1)%slides.length; show(idx); });
+      document.getElementById('prevSlide').addEventListener('click', ()=>{ idx = (idx-1+slides.length)%slides.length; show(idx); });
+      // auto rotate
+      setInterval(()=>{ idx = (idx+1)%slides.length; show(idx); }, 7000);
+    })();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-toggle').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.target;
+        const content = document.getElementById(id);
+        const open = !content.style.height || content.style.height === '0px';
+        // collapse others
+        document.querySelectorAll('.accordion-content').forEach(c=>{ c.style.height = '0'; });
+        if(open){
+          content.style.height = content.scrollHeight + 'px';
+        } else {
+          content.style.height = '0';
+        }
+      });
+    });
+
+    // contact form (example only) - uses mailto fallback
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+      if(!name || !email || !message){ status.textContent = 'Please complete required fields.'; return false; }
+
+      // create mailto as simple fallback
+      const subject = encodeURIComponent('New enquiry from ' + name);
+      const body = encodeURIComponent('Name: '+name+"\nEmail: "+email+"\nCompany: "+company+"\n\nMessage:\n"+message);
+      // open user's mail client
+      window.location.href = `mailto:hello@researchsoft.example?subject=${subject}&body=${body}`;
+      status.textContent = 'Opening your email client...';
+      return false;
+    }
+
+  </script>
+</body>
+</html>
